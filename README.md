@@ -6,8 +6,8 @@ Fractal Viewer est un projet qui permet de visualiser et explorer différentes f
 ---
 
 ### **Étapes pour compiler**
-  ```make\n```
-  ```./fractol [mandelbrot]|[burning_ship]|[julia <number(-2,2)> <number(-2,2)>]```
+  ```make
+  ./fractol [mandelbrot]|[burning_ship]|[julia <number(-2,2)> <number(-2,2)>]```
 
 Julia Fractal
 Description :
