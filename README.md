@@ -5,23 +5,25 @@ Fractal Viewer est un projet qui permet de visualiser et explorer différentes f
 
 ---
 
-### **Étapes pour compiler**
-  ```make
-  ./fractol [mandelbrot]|[burning_ship]|[julia <number(-2,2)> <number(-2,2)>]```
+### **Usage**
+```
+make
+./fractol <type>
+```
 
 Julia Fractal
-Description :
-La fractale de Julia permet de générer une animation interactive selon différents paramètres complexes.
-
-
+```
+./fractol julia <2 number between -2 and 2>
+```
+!()[]
 
 Mandelbrot Fractal
-Description :
-La fractale de Mandelbrot est une célèbre fractale connue pour ses motifs infiniment complexes.
-
+```
+./fractol mandelbrot
+```
 
 
 Burning Ship Fractal
-Description :
-La fractale de Burning Ship génère des motifs similaires à un navire en feu et offre un rendu spectaculaire.
-
+```
+./fractol burning_ship
+```
