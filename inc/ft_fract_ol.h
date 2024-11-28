@@ -6,7 +6,7 @@
 /*   By: bgoron <bgoron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 21:46:07 by bgoron            #+#    #+#             */
-/*   Updated: 2023/12/14 21:22:00 by bgoron           ###   ########.fr       */
+/*   Updated: 2024/11/28 19:31:55 by bgoron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_fractol {
 }				t_fractol;
 
 int				choose_fractal(char **av);
-t_fractol		*init_fractol(int ac, char **av, int iter);
+t_fractol		*init_fractol(int ac, char **av, t_fractol **f);
 void			set_values(int x, int y, int choice, t_fractol *f);
 
 unsigned int	burning_ship(t_fractol *f);

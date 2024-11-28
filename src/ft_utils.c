@@ -6,7 +6,7 @@
 /*   By: bgoron <bgoron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 21:53:43 by bgoron            #+#    #+#             */
-/*   Updated: 2023/12/12 18:53:20 by bgoron           ###   ########.fr       */
+/*   Updated: 2024/11/28 19:07:42 by bgoron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,6 @@ int	ft_strcmp(char *s1, char *s2)
 	while ((s1[i] == s2[i]) && s1[i])
 		i++;
 	return (s1[i] - s2[i]);
-}
-
-void	*ft_calloc(size_t nmemb, size_t size)
-{
-	void	*tab;
-	size_t	i;
-
-	i = 0;
-	if (nmemb == 0 || size == 0)
-		return (malloc(1));
-	if (nmemb * size / size != nmemb)
-		return (NULL);
-	tab = malloc (nmemb * size);
-	if (tab == NULL)
-		return (NULL);
-	while (i < size * nmemb)
-	{
-		*(unsigned char *)(tab + i) = '\0';
-		i++;
-	}
-	return (tab);
 }
 
 double	ft_atof(char *nbr)

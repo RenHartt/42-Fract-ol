@@ -6,15 +6,15 @@
 #    By: bgoron <bgoron@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 10:39:42 by bgoron            #+#    #+#              #
-#    Updated: 2024/05/24 15:06:19 by bgoron           ###   ########.fr        #
+#    Updated: 2024/11/28 19:33:41 by bgoron           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 CC = clang
-CFLAGS = -Wall -Werror -Wextra -I MacroLibX/includes -O3
+CFLAGS = -Wall -Werror -Wextra -O3 -IMacroLibX/includes -Iinc
 
-SRCS = src/ft_fractol.c \
+SRCS = src/main.c \
 src/ft_utils.c \
 src/ft_map.c \
 src/ft_color.c \

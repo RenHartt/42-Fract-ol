@@ -6,11 +6,12 @@
 /*   By: bgoron <bgoron@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 20:13:56 by bgoron            #+#    #+#             */
-/*   Updated: 2023/12/14 21:22:47 by bgoron           ###   ########.fr       */
+/*   Updated: 2024/11/28 19:34:55 by bgoron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fract_ol.h"
+#include <string.h>
 
 void	set_values(int x, int y, int choice, t_fractol *f)
 {
@@ -38,33 +39,55 @@ void	set_values(int x, int y, int choice, t_fractol *f)
 	}
 }
 
-t_fractol	*init_fractol(int ac, char **av, int iter)
+void	ft_allocator(t_fractol **f)
 {
-	t_fractol	*f;
+	*f = malloc(sizeof(t_fractol));
+	if (!*f)
+		return ;
+	memset(*f, 0, sizeof(t_fractol));
 
-	f = ft_calloc(1, sizeof(t_fractol));
-	f->s = ft_calloc(1, sizeof(t_set));
-	f->m = ft_calloc(1, sizeof(t_move));
-	f->c = ft_calloc(1, sizeof(t_color));
-	f->iter = iter;
-	f->m->zoom = 1;
-	f->m->pix = 1;
-	f->leftclick = 0;
-	f->rightclick = 0;
-	f->s->av = choose_fractal(av);
-	set_values(0, 0, f->s->av, f);
-	if (ac >= 2)
-	{
-		if (ac == 4)
-		{
-			f->s->c_r = ft_atof(av[2]);
-			f->s->c_i = ft_atof(av[3]);
-		}
-		f->mlx = mlx_init();
-		f->win = mlx_new_window(f->mlx, W, H, "Fract.ol");
-		f->img = mlx_new_image(f->mlx, W, H);
-	}
-	return (f);
+	(*f)->s = malloc(sizeof(t_set));
+	if (!(*f)->s)
+		return ;
+	memset((*f)->s, 0, sizeof(t_set));
+
+	(*f)->m = malloc(sizeof(t_move));
+	if (!(*f)->m)
+		return ;
+	memset((*f)->m, 0, sizeof(t_move));
+
+	(*f)->c = malloc(sizeof(t_color));
+	if (!(*f)->c)
+		return ;
+	memset((*f)->c, 0, sizeof(t_color));
+}
+
+t_fractol *init_fractol(int ac, char **av, t_fractol **f)
+{
+    ft_allocator(f);
+    if (!*f)
+        return (NULL);
+
+    (*f)->iter = 100;
+    (*f)->m->zoom = 1;
+    (*f)->m->pix = 1;
+    (*f)->leftclick = 0;
+    (*f)->rightclick = 0;
+    (*f)->s->av = choose_fractal(av);
+    set_values(0, 0, (*f)->s->av, *f);
+
+    if (ac >= 2)
+    {
+        if (ac == 4)
+        {
+            (*f)->s->c_r = ft_atof(av[2]);
+            (*f)->s->c_i = ft_atof(av[3]);
+        }
+        (*f)->mlx = mlx_init();
+        (*f)->win = mlx_new_window((*f)->mlx, W, H, "Fract.ol");
+        (*f)->img = mlx_new_image((*f)->mlx, W, H);
+    }
+    return (*f);
 }
 
 unsigned int	mandelbrot_julia(t_fractol *f)
