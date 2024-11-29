@@ -1,7 +1,7 @@
 # Fractal Viewer
 
 **Description :**  
-Fractal Viewer est un projet qui permet de visualiser et explorer différentes fractales mathématiques, notamment **Julia**, **Mandelbrot**, et **Burning Ship**.
+Fract-ol est un projet qui permet de visualiser et explorer différentes fractales mathématiques, notamment **Julia**, **Mandelbrot**, et **Burning Ship**.
 
 ---
 
